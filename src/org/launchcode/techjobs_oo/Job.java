@@ -17,7 +17,7 @@ public class Job {
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
 
-    public Job() {
+    public Job(String product_tester, Employer acme, Location desert, PositionType quality_control, CoreCompetency persistence) {
         id = nextId;
         nextId++;
     }
