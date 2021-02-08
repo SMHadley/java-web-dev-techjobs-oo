@@ -7,7 +7,7 @@ import org.launchcode.techjobs_oo.*;
 import static org.junit.Assert.*;
 
 public class JobTest {
-    private Job jobOne, jobTwo, jobThree;
+    private Job jobOne, jobTwo, jobThree, jobFour;
     private Employer employer;
     private Location location;
     private PositionType positionType;
@@ -18,7 +18,9 @@ public class JobTest {
     public void JobTest() {
         jobOne = new Job("Baker");
         jobTwo = new Job("Cook");
-        jobThree = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        jobThree = new Job("Product tester"); new Employer("ACME"); new Location("Desert"); new PositionType("Quality control"); new CoreCompetency("Persistence");
+        jobFour = new Job("Product tester2"); new Employer("ACME2"); new Location("Desert2"); new PositionType("Quality control2"); new CoreCompetency("Persistence2");
+
     }
 
     @Test
@@ -29,7 +31,11 @@ public class JobTest {
     }
     @Test
     public void testJobConstructorSetsAllFields() {
-    assert
+        assertTrue(String.valueOf(true), new Job("Product tester") instanceof Job);
+        assertTrue(String.valueOf(true), new Employer("ACME") instanceof Employer);
+        assertTrue(String.valueOf(true), new Location("Desert") instanceof Location);
+        assertTrue(String.valueOf(true), new PositionType("Quality control") instanceof PositionType);
+        assertTrue(String.valueOf(true), new CoreCompetency("Persistence") instanceof CoreCompetency);
 
     }
 }
