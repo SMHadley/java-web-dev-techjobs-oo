@@ -16,13 +16,12 @@ public class JobTest {
 
     @Before
     public void JobTest() {
-        jobOne = new Job("Baker");
-        jobTwo = new Job("Cook");
-        jobThree = new Job("Product tester"); new Employer("ACME"); new Location("Desert"); new PositionType("Quality control"); new CoreCompetency("Persistence");
-        jobFour = new Job("Product tester2"); new Employer("ACME2"); new Location("Desert2"); new PositionType("Quality control2"); new CoreCompetency("Persistence2");
+        jobOne = new Job();
+        jobTwo = new Job();
+        jobThree = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        jobFour = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
     }
-
     @Test
     public void testSettingJobId() {
         assertEquals(1, jobTwo.getId() - jobOne.getId());
@@ -31,11 +30,15 @@ public class JobTest {
     }
     @Test
     public void testJobConstructorSetsAllFields() {
-        assertTrue(String.valueOf(true), new Job("Product tester") instanceof Job);
-        assertTrue(String.valueOf(true), new Employer("ACME") instanceof Employer);
-        assertTrue(String.valueOf(true), new Location("Desert") instanceof Location);
-        assertTrue(String.valueOf(true), new PositionType("Quality control") instanceof PositionType);
-        assertTrue(String.valueOf(true), new CoreCompetency("Persistence") instanceof CoreCompetency);
+        assertEquals(true, jobThree instanceof Job);
+        assertEquals(true, jobThree.getEmployer() instanceof Employer);
+        assertEquals(true, jobThree.getLocation() instanceof Location);
+        assertEquals(true, jobThree.getPositionType() instanceof PositionType);
+        assertEquals(true, jobThree.getCoreCompetency() instanceof CoreCompetency);
 
+    }
+    @Test
+    public void testJobsForEquality() {
+        assertEquals(false, jobThree.equals(jobFour));
     }
 }
