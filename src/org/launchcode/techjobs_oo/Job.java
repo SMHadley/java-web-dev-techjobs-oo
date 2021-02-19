@@ -31,6 +31,18 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+    @Override
+    public String toString() {
+        return "Job{" + "\n" +
+                "id=" + id  + "\n" +
+                ", name='" + name + '\'' + "\n" +
+                ", employer=" + employer  + "\n" +
+                ", location=" + location  + "\n" +
+                ", positionType=" + positionType  + "\n" +
+                ", coreCompetency=" + coreCompetency  + "\n" +
+                '}';
+    }
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
